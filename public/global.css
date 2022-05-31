@@ -12,7 +12,7 @@
 	font-family : normal;
 	font-size: 16px;
 	
-	--bg-color : #171d31;
+	--bg-color : #f9fafb;
 
 	--primary-color : #7367f0;
 	--secondary-color : #283046;
@@ -22,7 +22,7 @@
 	--btn-primary-color : #7367f0;
 	--btn-secondary-color : #161d31;
 	--warning-color : #ff9f43;
-	--danger-color : #ea5455;
+	--danger-color : #ef305e;
 	--success-color : #28c76f;
 
 	--text-primary-color : #283046;
@@ -69,7 +69,7 @@ body {
 }
 
 .text-primary{
-	color : var(--primary-color);
+	color : #181C32 !important;
 }
 
 .text-white{
@@ -129,6 +129,10 @@ body {
 	text-align: center;
 }
 
+.text-large{
+	font-size: 1.75rem;
+}
+
 .justify-start{
 	justify-content: flex-start;
 }
@@ -173,6 +177,10 @@ body {
 	cursor: pointer;
 }
 
+.border-radius-5{
+	border-radius: 5px;
+}
+
 
 .option{
 	padding: 0.5rem;
@@ -183,102 +191,30 @@ body {
 	width: 55% !important;
 }
 
-.component_name{
-	width: 30% !important;
+
+.entry_column{
+	width: 20% !important;
 }
 
-.component_type , .component_version , .component_date{
-	width: 15% !important;
-}
-
-.component_parent_name{
-	width: 25% !important;
-}
-
-.task_start_date,.task_end_date{
-	width: 15% !important;
-}
-
-.task_status{
-	width: 15% !important;
-	outline: none;
-	border-top: none;
-	border-left: none;
-	border-right: none;
-}
 
 /** Status Classes Start **/
 
-.Not-Started{
-	background-color: #ea545520;
-    color: #ea5455;
+.Pending{
+	color: #fff !important;
+    background-color: #F1416C;
 }
 
-.In-Progress{
-	background-color: #ff9f4320;
-    color: #ff9f43;
+.Paid{
+	color: #fff !important;
+    background-color: #50CD89;
 }
 
-.Completed{
-	background-color: #28c76f20;
-    color: #28c76f;
+.duration{
+	color: #fff !important;
+    background-color: #FFC700;
 }
 
 /** Status Classes End **/
-
-/** Component Type Classes Start **/
-
-.Apex-Class{
-	background-color: #7367f020;
-    color: #7367f0;
-}
-
-.LWC{
-	background-color: #7367f020;
-    color: #7367f0;
-}
-
-.Omniscript{
-	background-color: #7367f020;
-    color: #7367f0;
-}
-
-.Integration-Procedure{
-	background-color: #7367f020;
-    color: #7367f0;
-}
-
-.Dataraptor{
-	background-color: #7367f020;
-    color: #7367f0;
-}
-
-.Custom-Field{
-	background-color: #7367f020;
-    color: #7367f0;
-}
-
-.Page-Layout{
-	background-color: #7367f020;
-    color: #7367f0;
-}
-
-.Lightning-Record-Type{
-	background-color: #7367f020;
-    color: #7367f0;
-}
-
-.Custom-Button{
-	background-color: #7367f020;
-    color: #7367f0;
-}
-
-.Flow{
-	background-color: #7367f020;
-    color: #7367f0;
-}
-
-/** Component Type Classes End **/
 
 /** Badge Class Start **/
 .Bullet-Not-Started{

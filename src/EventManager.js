@@ -4,25 +4,17 @@ const EVENTS = {
     SHOW_SPINNER : 'SHOW_SPINNER',
     HIDE_SPINNER : 'HIDE_SPINNER',
     
-    SELECT_VIEW : "SELECT_VIEW",
-    GET_VIEW_DATA : "GET_VIEW_DATA",
-    SEND_VIEW_DATA : "SEND_VIEW_DATA",
 
-    SELECT_LIST : "SELECT_LIST",
-    OPEN_NEW_LIST_POPUP : "OPEN_NEW_LIST_POPUP",
-    OPEN_EDIT_LIST_POPUP : "OPEN_EDIT_LIST_POPUP",
-    DELETE_LIST : "DELETE_LIST",
+    SELECT_CLIENT : "SELECT_CLIENT",
+    OPEN_NEW_CLIENT_POPUP : "OPEN_NEW_CLIENT_POPUP",
+    DELETE_CLIENT : "DELETE_CLIENT",
 
-    SELECT_TASK : "SELECT_TASK",
-    OPEN_NEW_TASK_POPUP : "OPEN_NEW_TASK_POPUP",
-    OPEN_VIEW_TASK_POPUP : "OPEN_VIEW_TASK_POPUP",
-    OPEN_EDIT_TASK_POPUP : "OPEN_EDIT_TASK_POPUP",
-    DELETE_TASK : "DELETE_TASK",
-    
-    OPEN_NEW_COMPONENT_POPUP : "OPEN_NEW_COMPONENT_POPUP",
-    OPEN_VIEW_COMPONENT_POPUP : "OPEN_VIEW_COMPONENT_POPUP",
-    OPEN_EDIT_COMPONENT_POPUP : "OPEN_EDIT_COMPONENT_POPUP",
-    DELETE_COMPONENET : "DELETE_COMPONENET",
+    OPEN_NEW_ENTRY_POPUP : "OPEN_NEW_ENTRY_POPUP",
+    OPEN_VIEW_ENTRY_POPUP : "OPEN_VIEW_ENTRY_POPUP",
+    OPEN_EDIT_ENTRY_POPUP : "OPEN_EDIT_ENTRY_POPUP",
+    UPDATE_ENTRY_STATUS : "UPDATE_ENTRY_STATUS",
+    UPDATE_ENTRY_DURATION : "UPDATE_ENTRY_DURATION",
+    DELETE_ENTRY : "DELETE_ENTRY",
 
     CLOSE_POPUP : "CLOSE_POPUP"
 }
@@ -66,9 +58,9 @@ const fireEvent = (eventName, payload) => {
             try {
                 listener.callback.call(this,payload);
             } catch (error) {
-                console.error('@eventName : ',eventName) &&
-                console.error('@listener : ',listener) &&
-                console.error('@payload : ',payload) &&
+                console.error('@eventName : ',eventName);
+                console.error('@listener : ',listener);
+                console.error('@payload : ',payload);       
                 console.error('@error : ',error)
             }
         });

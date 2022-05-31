@@ -1,227 +1,123 @@
 import { API } from "./constants";
 
-export const getUserDataCallout = (user_id) => {
-    return fetch(API.BASE_ENDPOINT+API.ENDPOINTS.getUserData,{
+export const getWorkEntry = () => {
+    return fetch(API.BASE_ENDPOINT+API.ENDPOINTS.work_entry,{
+        headers: {
+            'Content-Type': 'application/json'
+          }
+    })
+    .then(res => res.json())
+    .catch(err => {
+        console.error('getWorkEntry : ',err);
+    });
+};
+
+export const getClients = () => {
+    return fetch(API.BASE_ENDPOINT+API.ENDPOINTS.client,{
+        headers: {
+            'Content-Type': 'application/json'
+          }
+    })
+    .then(res => res.json())
+    .catch(err => {
+        console.error('getClients : ',err);
+    });
+};
+
+export const createClient = (_client) => {
+    return fetch(API.BASE_ENDPOINT+API.ENDPOINTS.client,{
         method : 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body : JSON.stringify(_client)
+    })
+    .then(res => res.json())
+    .catch(err => {
+        console.error('createClient : ',err);
+    });
+};
+
+export const deleteClient = (client_id) => {
+    return fetch(API.BASE_ENDPOINT+API.ENDPOINTS.client,{
+        method : 'DELETE',
+        headers: {
+            'Content-Type': 'application/json'
+        },
         body : JSON.stringify({
-            user_id
+            Id : client_id
         })
     })
     .then(res => res.json())
     .catch(err => {
-        console.error('getUserDataCallout : ',err);
+        console.error('deleteClient : ',err);
     });
 };
 
-export const getUserGeneralTasksCallout = (user_id) => {
-    return fetch(API.BASE_ENDPOINT+API.ENDPOINTS.getUserGeneralTasks,{
+export const createTimeEntry = (_entry) => {
+    return fetch(API.BASE_ENDPOINT+API.ENDPOINTS.work_entry,{
         method : 'POST',
-        body : JSON.stringify({
-            user_id
-        })
-    }).then(res => res.json())
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body : JSON.stringify(_entry)
+    })
+    .then(res => res.json())
     .catch(err => {
-        console.error('getUserGeneralTasksCallout : ',err);
+        console.error('createTimeEntry : ',err);
     });
 };
 
-export const createListCallout = (user_id,list_name,list_detail) => {
-    return fetch(API.BASE_ENDPOINT+API.ENDPOINTS.createList,{
-        method : 'POST',
+export const deleteTimeEntry = (entry_id) => {
+    return fetch(API.BASE_ENDPOINT+API.ENDPOINTS.work_entry,{
+        method : 'DELETE',
+        headers: {
+            'Content-Type': 'application/json'
+        },
         body : JSON.stringify({
-            user_id,
-            list_name,
-            list_detail
+            Id : entry_id
         })
-    }).then(res => res.json())
+    })
+    .then(res => res.json())
     .catch(err => {
-        console.error('createListCallout : ',err);
+        console.error('deleteTimeEntry : ',err);
     });
 };
 
-export const updateListCallout = (user_id,list_id,list_name,list_detail) => {
-    return fetch(API.BASE_ENDPOINT+API.ENDPOINTS.updateList,{
-        method : 'POST',
+export const updateEntryStatus = (entry) => {
+    return fetch(API.BASE_ENDPOINT+API.ENDPOINTS.work_entry,{
+        method : 'PATCH',
+        headers: {
+            'Content-Type': 'application/json'
+        },
         body : JSON.stringify({
-            user_id,
-            list_id,
-            list_name,
-            list_detail
+            Id : entry._id,
+            Payment_Status : entry.Payment_Status
         })
-    }).then(res => res.json())
+    })
+    .then(res => res.json())
     .catch(err => {
-        console.error('updateListCallout : ',err);
+        console.error('updateEntryStatus : ',err);
     });
 };
 
-export const deleteListCallout = (user_id,list_id) => {
-    return fetch(API.BASE_ENDPOINT+API.ENDPOINTS.deleteList,{
-        method : 'POST',
+export const updateEntryDuration = (entry) => {
+    return fetch(API.BASE_ENDPOINT+API.ENDPOINTS.work_entry,{
+        method : 'PATCH',
+        headers: {
+            'Content-Type': 'application/json'
+        },
         body : JSON.stringify({
-            user_id,
-            list_id
+            Id : entry._id,
+            Duration : entry.Duration
         })
-    }).then(res => res.json())
+    })
+    .then(res => res.json())
     .catch(err => {
-        console.error('deleteListCallout : ',err);
+        console.error('updateEntryDuration : ',err);
     });
 };
 
-export const createTaskCallout = (user_id,task_name,task_detail,list_task_root_id) => {
-    return fetch(API.BASE_ENDPOINT+API.ENDPOINTS.createTask,{
-        method : 'POST',
-        body : JSON.stringify({
-            user_id,
-            task_name,
-            task_detail,
-            list_task_root_id
-        })
-    }).then(res => res.json())
-    .catch(err => {
-        console.error('createTaskCallout : ',err);
-    });
-};
-
-export const updateTaskCallout = (user_id,task_id,task_name,task_detail) => {
-    return fetch(API.BASE_ENDPOINT+API.ENDPOINTS.updateTask,{
-        method : 'POST',
-        body : JSON.stringify({
-            user_id,
-            task_id,
-            task_name,
-            task_detail
-        })
-    }).then(res => res.json())
-    .catch(err => {
-        console.error('updateTaskCallout : ',err);
-    });
-};
-
-export const deleteTaskCallout = (user_id,task_id) => {
-    return fetch(API.BASE_ENDPOINT+API.ENDPOINTS.deleteTask,{
-        method : 'POST',
-        body : JSON.stringify({
-            user_id,
-            task_id
-        })
-    }).then(res => res.json())
-    .catch(err => {
-        console.error('deleteTaskCallout : ',err);
-    });
-};
-
-export const createGeneralTaskCallout = (user_id,task_name,task_detail) => {
-    return fetch(API.BASE_ENDPOINT+API.ENDPOINTS.createGeneralTask,{
-        method : 'POST',
-        body : JSON.stringify({
-            user_id,
-            task_name,
-            task_detail
-        })
-    }).then(res => res.json())
-    .catch(err => {
-        console.error('createTaskCallout : ',err);
-    });
-};
-
-export const updateGeneralTaskCallout = (user_id,task_id,task_name,task_detail) => {
-    return fetch(API.BASE_ENDPOINT+API.ENDPOINTS.updateGeneralTask,{
-        method : 'POST',
-        body : JSON.stringify({
-            user_id,
-            task_id,
-            task_name,
-            task_detail
-        })
-    }).then(res => res.json())
-    .catch(err => {
-        console.error('updateGeneralTaskCallout : ',err);
-    });
-};
-
-export const deleteGeneralTaskCallout = (user_id,task_id) => {
-    return fetch(API.BASE_ENDPOINT+API.ENDPOINTS.deleteGeneralTask,{
-        method : 'POST',
-        body : JSON.stringify({
-            user_id,
-            task_id
-        })
-    }).then(res => res.json())
-    .catch(err => {
-        console.error('deleteGeneralTaskCallout : ',err);
-    });
-};
-
-export const deleteGeneralBulkTaskCallout = (user_id,task_ids) => {
-    return fetch(API.BASE_ENDPOINT+API.ENDPOINTS.deleteBulkGeneralTask,{
-        method : 'POST',
-        body : JSON.stringify({
-            user_id,
-            task_ids
-        })
-    }).then(res => res.json())
-    .catch(err => {
-        console.error('deleteGeneralBulkTaskCallout : ',err);
-    });
-};
-
-export const createComponentCallout = (user_id,component_name,component_detail,list_component_root_id) => {
-    return fetch(API.BASE_ENDPOINT+API.ENDPOINTS.createComponent,{
-        method : 'POST',
-        body : JSON.stringify({
-            user_id,
-            component_name,
-            component_detail,
-            list_component_root_id
-        })
-    }).then(res => res.json())
-    .catch(err => {
-        console.error('createComponentCallout : ',err);
-    });
-};
-
-export const updateComponentCallout = (user_id,component_id,component_name,component_detail) => {
-    return fetch(API.BASE_ENDPOINT+API.ENDPOINTS.updateComponent,{
-        method : 'POST',
-        body : JSON.stringify({
-            user_id,
-            component_id,
-            component_name,
-            component_detail
-        })
-    }).then(res => res.json())
-    .catch(err => {
-        console.error('updateComponentCallout : ',err);
-    });
-};
-
-export const deleteComponentCallout = (user_id,component_id) => {
-    return fetch(API.BASE_ENDPOINT+API.ENDPOINTS.deleteComponent,{
-        method : 'POST',
-        body : JSON.stringify({
-            user_id,
-            component_id
-        })
-    }).then(res => res.json())
-    .catch(err => {
-        console.error('deleteComponentCallout : ',err);
-    });
-};
-
-
-export const exportListComponentsCallout = (user_id,file_name,data) => {
-    return fetch(API.BASE_ENDPOINT+API.ENDPOINTS.exportListComponents,{
-        method : 'POST',
-        body : JSON.stringify({
-            user_id,
-            file_name,
-            data
-        })
-    }).then(res => res.blob())
-    .catch(err => {
-        console.error('exportListComponentsCallout : ',err);
-    });
-};
 
 
 
