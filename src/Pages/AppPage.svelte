@@ -72,7 +72,7 @@
         createClient(new_client)
         .then(res => {
             clients.push({
-                _id : res._id,
+                _id : res.Id,
                 Name : res.Name,
                 Rate : res.Rate
             });
@@ -191,13 +191,12 @@
         }else{
             entry_fields.Start_Time = true;
         }
-
         fireEvent(EVENTS.SHOW_SPINNER,{});
         createTimeEntry(new_entry)
         .then(res => {
             work_entries.push({
-                _id:res._id,
-                Client : res.Client,
+                _id:res.Id,
+                Client : [new_entry.Client],
                 Start_Date : new_entry.Start_Date,
                 Start_Time : new_entry.Start_Time,
                 Payment_Status : new_entry.Payment_Status,
@@ -206,8 +205,8 @@
             });
 
             store.push({
-                _id:res._id,
-                Client : res.Client,
+                _id:res.Id,
+                Client : [new_entry.Client],
                 Start_Date : new_entry.Start_Date,
                 Start_Time : new_entry.Start_Time,
                 Payment_Status : new_entry.Payment_Status,
