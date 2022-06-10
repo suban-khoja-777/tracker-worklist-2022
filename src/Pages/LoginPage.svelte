@@ -87,12 +87,8 @@
         margin: 0;
     }
 
-    .app-highlight{
-        font-weight: 900;
-        background-color: #F1416C;
-        color: white;
-        padding: .25rem;
-        border-radius: 5px;
+    .logo{
+        width: 66%;
     }
     
 </style>
@@ -105,9 +101,8 @@
                     <div class="form form-right flex justify-center flex-column">
                         <div class="flex flex-row justify-center align-cente">
                             <h1 class="flex justify-center title flex align-center text-primary text-boldest">
-                                Sign in to worklist
+                                <img class="logo" src="./logo.svg" alt="worklist tracker logo">
                             </h1>
-                            &nbsp;<span class="flex align-center justify-center app-highlight">tracker</span>
                         </div>
                         <br/>
                         <br/>
